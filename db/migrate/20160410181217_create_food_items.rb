@@ -9,9 +9,9 @@ class CreateFoodItems < ActiveRecord::Migration
       t.integer :size_value
       t.string :size_unit
       t.integer :remaining
-      t.integer :owner
+      t.belongs_to :user
       t.boolean :public
-      t.integer :location
+      t.belongs_to :location
 
     end
   end

@@ -8,6 +8,16 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  # post 'authenication/check_username/:name' => 'users#check'
+
+  # get 'signup'  => 'users#new'
+  # resources :users
+  post 'users/signup' => 'users#create'
+  post 'users' => 'users#get'
+
+  post 'login' => 'sessions#create'
+
+  delete 'logout' => 'sessions#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

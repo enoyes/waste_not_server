@@ -1,2 +1,0 @@
-class WasteNotController
-end
