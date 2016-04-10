@@ -1,0 +1,2 @@
+class WasteNotController
+end
