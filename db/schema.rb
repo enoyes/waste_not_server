@@ -11,15 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707111715) do
+ActiveRecord::Schema.define(version: 20160410211019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "widgets", force: true do |t|
+  create_table "food_items", force: :cascade do |t|
+    t.string   "f_id"
     t.string   "name"
-    t.text     "description"
-    t.integer  "stock"
+    t.string   "desc"
+    t.datetime "purchased"
+    t.datetime "expiration"
+    t.integer  "size_value"
+    t.string   "size_unit"
+    t.integer  "remaining"
+    t.integer  "user_id"
+    t.boolean  "public"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "group_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "handle"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "token"
+    t.datetime "last_sync"
+    t.integer  "group_id"
+    t.boolean  "group_pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
