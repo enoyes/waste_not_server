@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
     self.last_sync = DateTime.now
   end
 
+
 end

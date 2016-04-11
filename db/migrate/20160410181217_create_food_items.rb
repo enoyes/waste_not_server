@@ -1,7 +1,7 @@
 class CreateFoodItems < ActiveRecord::Migration
   def change
     create_table :food_items do |t|
-      t.integer :f_id
+      t.string :f_id
       t.string :name
       t.string :desc
       t.datetime :purchased
@@ -12,6 +12,8 @@ class CreateFoodItems < ActiveRecord::Migration
       t.belongs_to :user
       t.boolean :public
       t.belongs_to :location
+
+      t.timestamps
 
     end
   end

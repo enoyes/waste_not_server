@@ -17,7 +17,14 @@ Rails.application.routes.draw do
 
   post 'login' => 'sessions#create'
 
-  delete 'logout' => 'sessions#destroy'
+  post 'groups/create' => 'groups#create'
+  post 'groups/request_join' => 'groups#request_join'
+  post 'groups/approve' => 'groups#approve'
+  post 'groups/get_members' => 'groups#get_members'
+
+  post 'locations/new' => 'locations#add_location'
+
+  post 'sync_data' => 'sync#sync_data'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

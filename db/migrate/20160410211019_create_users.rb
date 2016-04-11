@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :token
       t.datetime :last_sync
       t.belongs_to :group
+      t.boolean :group_pending
 
       t.timestamps
     end

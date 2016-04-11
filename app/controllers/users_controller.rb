@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
 
   def create
-    handle = params[:handle]
-    email = params[:email]
-    password = params[:password]
+    handle = params["handle"]
+    email = params["email"]
+    password = params["password"]
     user = User.new(handle: handle, email: email, password_digest: password)
     user.set_last_sync!
     if user.save!
