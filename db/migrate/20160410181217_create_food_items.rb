@@ -12,6 +12,7 @@ class CreateFoodItems < ActiveRecord::Migration
       t.belongs_to :user
       t.boolean :public
       t.belongs_to :location
+      t.boolean :deleted
 
       t.timestamps
 

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160410211019) do
     t.integer  "user_id"
     t.boolean  "public"
     t.integer  "location_id"
+    t.boolean  "deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
