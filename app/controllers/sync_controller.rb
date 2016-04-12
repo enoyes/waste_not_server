@@ -35,7 +35,7 @@ class SyncController < ApplicationController
 
     end
 
-    render json: {locations: send_locations, food_items: send_food_items}
+    render json: {locations: send_locations, food_items: send_food_items, group_members: send_group_members}
 
 
 

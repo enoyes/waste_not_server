@@ -5,12 +5,13 @@ class GroupsController < ApplicationController
     name = params[:name]
     if Group.find_by(name: name)
       render json: {error: "That group name already exists"}, status: 421
-    end
-    group = Group.new(name: name)
-    @current_user.group = group
-    @current_user.group_pending = false
-    if group.save && @current_user.save
-      render json: {name: group.name, id: group.id}, status: 200
+    else
+      group = Group.new(name: name)
+      @current_user.group = group
+      @current_user.group_pending = false
+      if group.save && @current_user.save
+        render json: {name: group.name, id: group.id}, status: 200
+      end
     end
   end
 
@@ -31,7 +32,7 @@ class GroupsController < ApplicationController
     pending_user = User.find_by(email: params[:email])
     pending_user.group_pending = false
     if pending_user.save
-      render json: {message: "Member approved"}, status: 200
+      render json: {message: "Member approved", user: pending_user.handle}, status: 200
     end
   end
 
